@@ -1,0 +1,159 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M0 191.48l832.52 832.52 832.52-832.52-191.48-191.48-641.041 641.041-641.041-641.041z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"width": 1665,
+				"grid": 0,
+				"tags": [
+					"arrow-down"
+				]
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 1,
+				"id": 3,
+				"prevSize": 32,
+				"code": 58880,
+				"name": "arrow-down"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M0 832.52l832.52-832.52 832.52 832.52-191.48 191.48-641.041-632.715-641.041 632.715z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"width": 1665,
+				"grid": 0,
+				"tags": [
+					"arrow-up"
+				]
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 2,
+				"id": 2,
+				"prevSize": 32,
+				"code": 58881,
+				"name": "arrow-up"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 1
+		},
+		{
+			"icon": {
+				"paths": [
+					"M667.152 512l362.020-367.192-144.808-144.808-367.192 367.192-372.364-362.020-144.808 149.98 367.192 356.848-362.020 367.192 144.808 144.808 367.192-367.192 372.364 362.020 144.808-149.98z"
+				],
+				"attrs": [
+					{}
+				],
+				"isMulticolor": false,
+				"width": 1034,
+				"grid": 0,
+				"tags": [
+					"toggle-close"
+				]
+			},
+			"attrs": [
+				{}
+			],
+			"properties": {
+				"order": 3,
+				"id": 1,
+				"prevSize": 32,
+				"code": 58882,
+				"name": "toggle-close"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 2
+		},
+		{
+			"icon": {
+				"paths": [
+					"M0 0h1228.8v204.8h-1228.8v-204.8z",
+					"M0 409.6h1228.8v204.8h-1228.8v-204.8z",
+					"M0 819.2h1228.8v204.8h-1228.8v-204.8z"
+				],
+				"attrs": [
+					{},
+					{},
+					{}
+				],
+				"isMulticolor": false,
+				"width": 1229,
+				"grid": 0,
+				"tags": [
+					"toggle-open"
+				]
+			},
+			"attrs": [
+				{},
+				{},
+				{}
+			],
+			"properties": {
+				"order": 4,
+				"id": 0,
+				"prevSize": 32,
+				"code": 58883,
+				"name": "toggle-open"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 3
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "huge-icons"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-",
+			"metadata": {
+				"fontFamily": "huge-icons",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			}
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215
+		},
+		"historySize": 100,
+		"gridSize": 16
+	}
+}

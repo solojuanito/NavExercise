@@ -1,10 +1,211 @@
-@import "fonts.css";
-
-body {
-  background: #ec008c;
-  color: #fff;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* 
+Start HUGE Typefaces
+*/
+@font-face {
+  font-family: 'HUGEAvantGardeBold';
+  src: url("/fonts/huge_agb_v5-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/huge_agb_v5-webfont.woff") format("woff"), url("/fonts/huge_agb_v5-webfont.ttf") format("truetype"), url("/fonts/huge_agb_v5-webfont.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: 'Galaxie';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/GalaxieCopernicus-Book.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-Book.woff") format("woff"), url("/fonts/GalaxieCopernicus-Book.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: 'Galaxie';
+  font-style: italic;
+  font-weight: normal;
+  src: url("/fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("/fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg");
+}
+/* 
+End HUGE Typefaces
+*/
+/* 
+Start Icon handling
+*/
+@font-face {
+  font-family: 'huge-icons';
+  src: url('fonts/huge-icons.eot?l3o5wp');
+  src: url('fonts/huge-icons.eot?#iefixl3o5wp') format('embedded-opentype'), url('fonts/huge-icons.ttf?l3o5wp') format('truetype'), url('fonts/huge-icons.woff?l3o5wp') format('woff'), url('fonts/huge-icons.svg?l3o5wp#huge-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'huge-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-arrow-down:before {
+  content: "\e600";
+}
+.icon-arrow-up:before {
+  content: "\e601";
+}
+.icon-toggle-close:before {
+  content: "\e602";
+}
+.icon-toggle-open:before {
+  content: "\e603";
+}
+/* 
+End Icon handling
+*/
+body {
+  font: 14px/24px 'Galaxie', serif;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    font: 24px/36px 'Galaxie', serif;
+  }
+}
+.hero-image {
+  background: url('/images/background-image.jpg') 50% 0 no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 312px;
+  margin-top: 72px;
+}
+@media only screen and (min-width: 768px) {
+  .hero-image {
+    height: 712px;
+  }
+}
 h1 {
   position: absolute;
   top: 50%;
@@ -12,7 +213,112 @@ h1 {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
-  font: 20vmin/1 HUGEAvantGardeBold;
   letter-spacing: -0.06em;
   text-align: center;
+  color: #FFF;
+  width: 70%;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    font: 100px/1.1 'HUGEAvantGardeBold', sans-serif;
+  }
+}
+@media only screen and (min-width: 990px) {
+  h1 {
+    font: 120px/132px 'HUGEAvantGardeBold', sans-serif;
+  }
+}
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.main-nav {
+  height: 72px;
+  background: #ec008c;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  top: -72px;
+}
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+.main-nav .nav-logo {
+  background: url('/images/HUGE-logo.png') 0 0 no-repeat;
+  display: block;
+  height: 24px;
+  width: 60px;
+  float: left;
+  margin: 24px 48px 24px 24px;
+}
+.main-nav .nav-item {
+  float: left;
+  position: relative;
+}
+.main-nav .nav-item > a {
+  display: block;
+}
+.main-nav .nav-item > a:hover {
+  background-color: #FFF;
+  color: #ec008c;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item > a {
+    font: 16px/48px 'HUGEAvantGardeBold', sans-serif;
+    padding: 12px 17px;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .main-nav .nav-item > a {
+    padding: 12px 24px;
+    font: 21px/48px 'HUGEAvantGardeBold', sans-serif;
+  }
+}
+.main-nav .nav-item .sub-nav {
+  display: none;
+  background-color: #FFF;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  padding: 12px 0;
+  white-space: nowrap;
+  z-index: 2;
+}
+.main-nav .nav-item .sub-nav a {
+  display: block;
+  color: #000;
+  padding: 0 24px;
+  font: 14px/30px 'Galaxie', serif;
+}
+.main-nav .nav-item .sub-nav a:hover {
+  color: #ec008c;
+  background-color: #eeeeee;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item .sub-nav a {
+    font: 14px/30px 'Galaxie', serif;
+    padding: 12px 17px;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .main-nav .nav-item .sub-nav a {
+    padding: 12px 24px;
+    font: 16px/48px 'Galaxie', serif;
+  }
+}
+.content {
+  max-width: 968px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+.content p {
+  margin-bottom: 2em;
+  text-align: justify;
+}
+@media only screen and (min-width: 990px) {
+  .content {
+    padding: 0;
+  }
 }

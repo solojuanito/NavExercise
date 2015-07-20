@@ -15,11 +15,18 @@
   },
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "npm run compile-css && npm run watch && node ./bin/www",
+    "watch-css": "catw -c 'lessc -' 'less/main.less' -o public/styles/main.css",
+    "watch": "npm run watch-css & node ./bin/www",
+    "compile-css": "./node_modules/.bin/lessc less/main.less public/styles/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "express": "~4.2.0",
+    "less": "^2.5.1",
     "morgan": "~1.0.0"
+  },
+  "devDependencies": {
+    "catw": "~0.2.0"
   }
 }
