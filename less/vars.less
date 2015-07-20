@@ -29,3 +29,11 @@
 @prim-nav-mobile: ~"21px/48px" @primary-font;
 @head-mobile: ~"44px/48px" @primary-font;
 @body-mobile: ~"14px/24px" @secondary-font;
+
+//Standardized transition params
+.transition-properties(...) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}

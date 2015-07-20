@@ -3,6 +3,7 @@
 @import 'less/fonts.less';
 
 body {
+	position: relative;
 	font: @body-mobile;
 	@media @desktop {
 		font: @body-desktop;
@@ -13,27 +14,40 @@ body {
 	background: url('/images/background-image.jpg') 50% 0 no-repeat;
 	background-size:cover;
 	position: relative;
-	height: 312px;
-	margin-top: 72px;
+	height: 300px;
+	margin-top: 60px;
+	.transition-properties(all .3s ease-in-out);
 	@media @desktop {
+		margin-top: 72px;
 		height: 712px;
+		margin-bottom: 0;
 	}
 }
 
 h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  position: relative;
   margin: 0;
   letter-spacing: -0.06em;
-  text-align: center;
-  color:#FFF;
-  width: 70%;
+  color: #000;
+  font: @head-mobile;
+  text-align: left;
+  padding: 0 24px;
+  margin: 50px 0;
   
   @media @desktop {
-  	font: @head-desktop;
+  	position: absolute;
+	font: @head-desktop;
+	color:#FFF;
+	text-align: center;
+	bottom: auto;
+	top: 25%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 70%;
+	padding: 0;
+	margin: 0;
+	.transition-properties(all .3s ease-in-out);
   }
   @media @desktop-large {
 	  	font: @head-desktop-large;
@@ -46,34 +60,85 @@ h1 {
   overflow: hidden;
 }
 
+.navbar-toggle{
+	background: none;
+	border: 0 none;
+	line-height: 20px;
+	position: absolute;
+	font-size: 20px;
+	top: -60px;
+	right: 0;
+	margin-right: 0;
+	z-index: 2;
+	color: #FFF;
+	padding: 20px 24px;
+	cursor: pointer;
+	.transition-properties(all .3s ease-in-out);
+
+	@media @desktop {
+		display: none;
+	}
+	.icon-toggle-open {
+		display: none;
+	}
+	.icon-toggle-close {
+		display: block;
+	}
+
+	&.collapsed {
+		right: 100%;
+		margin-right: -72px;
+
+		.icon-toggle-open {
+			display: block;
+		}
+		.icon-toggle-close {
+			display: none;
+		}
+	}
+}
+
 .main-nav {
-  height: 72px;
+  height: 60px;
   background: @magenta;
   color: #fff;
   position: absolute;
   width: 100%;
-  top:-72px;
+  top: -60px;
+  .transition-properties(all .3s ease-in-out);
 
   	a {
-	  color: #fff;
 	  text-decoration: none;	  
 	}
 
 	.nav-logo {
 		background: url('/images/HUGE-logo.png') 0 0 no-repeat;
-		display: block;
 		height: 24px;
 		width: 60px;
 		float: left;
 		margin: 24px 48px 24px 24px;
 	}
 
+	ul {
+		position: absolute;
+		top: 60px;
+		width: 100%;
+		@media @desktop {
+			position: relative;
+			top:auto;
+			width: auto;
+		}
+	}
+
 	.nav-item {
-		float: left;
 		position: relative;
 
 		> a{
 			display: block;
+			font: @prim-nav-mobile;
+			color:#000;
+			padding: 0 24px;
+			background-color: #FFF;
 
 			&:hover {
 				background-color:#FFF;
@@ -81,9 +146,11 @@ h1 {
 			}
 			
 			@media @desktop {
+				float: left;
 				font: @prim-nav-desktop;
 				padding: 12px 17px;
-
+				background: none;
+				color: #fff;
 			}
 			@media @desktop-large {
 				padding: 12px 24px;
@@ -125,11 +192,23 @@ h1 {
 			}
 		}
 	}
+
+	&.collapse {
+		.nav-logo,#main-nav-container  {
+			display: none;
+			@media @desktop {
+				display: block;
+			}
+		}
+	}
+	@media @desktop {
+		height: 72px;
+		top:-72px;
+	}
 }
 
 .content {
 	max-width: 968px;
-	margin: 60px auto;
 	padding: 0 24px;
 
 	p{
@@ -137,7 +216,17 @@ h1 {
 		text-align: justify;
 	}
 
+	@media @desktop {
+		margin: 60px auto;
+	}
+
 	@media @desktop-large {
 		padding: 0;
+	}
+}
+
+.menu-open {
+	.content, h1 {
+		
 	}
 }

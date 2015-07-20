@@ -153,8 +153,8 @@ Start Icon handling
 */
 @font-face {
   font-family: 'huge-icons';
-  src: url('fonts/huge-icons.eot?l3o5wp');
-  src: url('fonts/huge-icons.eot?#iefixl3o5wp') format('embedded-opentype'), url('fonts/huge-icons.ttf?l3o5wp') format('truetype'), url('fonts/huge-icons.woff?l3o5wp') format('woff'), url('fonts/huge-icons.svg?l3o5wp#huge-icons') format('svg');
+  src: url('/fonts/huge-icons.eot?l3o5wp');
+  src: url('/fonts/huge-icons.eot?#iefixl3o5wp') format('embedded-opentype'), url('/fonts/huge-icons.ttf?l3o5wp') format('truetype'), url('/fonts/huge-icons.woff?l3o5wp') format('woff'), url('/fonts/huge-icons.svg?l3o5wp#huge-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -187,6 +187,7 @@ Start Icon handling
 End Icon handling
 */
 body {
+  position: relative;
   font: 14px/24px 'Galaxie', serif;
 }
 @media only screen and (min-width: 768px) {
@@ -198,29 +199,48 @@ body {
   background: url('/images/background-image.jpg') 50% 0 no-repeat;
   background-size: cover;
   position: relative;
-  height: 312px;
-  margin-top: 72px;
+  height: 300px;
+  margin-top: 60px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .hero-image {
+    margin-top: 72px;
     height: 712px;
+    margin-bottom: 0;
   }
 }
 h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  position: relative;
   margin: 0;
   letter-spacing: -0.06em;
-  text-align: center;
-  color: #FFF;
-  width: 70%;
+  color: #000;
+  font: 44px/48px 'HUGEAvantGardeBold', sans-serif;
+  text-align: left;
+  padding: 0 24px;
+  margin: 50px 0;
 }
 @media only screen and (min-width: 768px) {
   h1 {
+    position: absolute;
     font: 100px/1.1 'HUGEAvantGardeBold', sans-serif;
+    color: #FFF;
+    text-align: center;
+    bottom: auto;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 70%;
+    padding: 0;
+    margin: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 }
 @media only screen and (min-width: 990px) {
@@ -233,32 +253,88 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
 }
+.navbar-toggle {
+  background: none;
+  border: 0 none;
+  line-height: 20px;
+  position: absolute;
+  font-size: 20px;
+  top: -60px;
+  right: 0;
+  margin-right: 0;
+  z-index: 2;
+  color: #FFF;
+  padding: 20px 24px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@media only screen and (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+.navbar-toggle .icon-toggle-open {
+  display: none;
+}
+.navbar-toggle .icon-toggle-close {
+  display: block;
+}
+.navbar-toggle.collapsed {
+  right: 100%;
+  margin-right: -72px;
+}
+.navbar-toggle.collapsed .icon-toggle-open {
+  display: block;
+}
+.navbar-toggle.collapsed .icon-toggle-close {
+  display: none;
+}
 .main-nav {
-  height: 72px;
+  height: 60px;
   background: #ec008c;
   color: #fff;
   position: absolute;
   width: 100%;
-  top: -72px;
+  top: -60px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .main-nav a {
-  color: #fff;
   text-decoration: none;
 }
 .main-nav .nav-logo {
   background: url('/images/HUGE-logo.png') 0 0 no-repeat;
-  display: block;
   height: 24px;
   width: 60px;
   float: left;
   margin: 24px 48px 24px 24px;
 }
+.main-nav ul {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav ul {
+    position: relative;
+    top: auto;
+    width: auto;
+  }
+}
 .main-nav .nav-item {
-  float: left;
   position: relative;
 }
 .main-nav .nav-item > a {
   display: block;
+  font: 21px/48px 'HUGEAvantGardeBold', sans-serif;
+  color: #000;
+  padding: 0 24px;
+  background-color: #FFF;
 }
 .main-nav .nav-item > a:hover {
   background-color: #FFF;
@@ -266,8 +342,11 @@ h1 {
 }
 @media only screen and (min-width: 768px) {
   .main-nav .nav-item > a {
+    float: left;
     font: 16px/48px 'HUGEAvantGardeBold', sans-serif;
     padding: 12px 17px;
+    background: none;
+    color: #fff;
   }
 }
 @media only screen and (min-width: 990px) {
@@ -308,14 +387,34 @@ h1 {
     font: 16px/48px 'Galaxie', serif;
   }
 }
+.main-nav.collapse .nav-logo,
+.main-nav.collapse #main-nav-container {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav.collapse .nav-logo,
+  .main-nav.collapse #main-nav-container {
+    display: block;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .main-nav {
+    height: 72px;
+    top: -72px;
+  }
+}
 .content {
   max-width: 968px;
-  margin: 60px auto;
   padding: 0 24px;
 }
 .content p {
   margin-bottom: 2em;
   text-align: justify;
+}
+@media only screen and (min-width: 768px) {
+  .content {
+    margin: 60px auto;
+  }
 }
 @media only screen and (min-width: 990px) {
   .content {
