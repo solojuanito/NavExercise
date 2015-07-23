@@ -307,7 +307,7 @@ p {
   top: -60px;
   right: 0;
   margin-right: 0;
-  z-index: 2;
+  z-index: 3;
   color: #FFF;
   padding: 20px 24px;
   cursor: pointer;
@@ -344,6 +344,7 @@ p {
   position: absolute;
   width: 100%;
   top: -60px;
+  z-index: 2;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -358,21 +359,64 @@ p {
   width: 60px;
   float: left;
   margin: 24px 48px 24px 24px;
-}
-.main-nav .sub-nav {
-  position: absolute;
-  top: 60px;
-  width: 100%;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
-  .main-nav .sub-nav {
+  .main-nav .nav-logo {
+    display: block;
+    opacity: 1;
+  }
+}
+.main-nav #main-nav-container {
+  position: absolute;
+  top: 60px;
+  width: 90%;
+  height: 100%;
+  padding: 12px 0;
+  background-color: #FFF;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav #main-nav-container {
     position: relative;
     top: auto;
     width: auto;
+    height: auto;
+    background: none;
+    padding: 0;
   }
 }
 .main-nav .nav-item {
   position: relative;
+}
+.main-nav .nav-item.has-children:after {
+  font-family: 'huge-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e600";
+  position: absolute;
+  right: 24px;
+  color: #ec008c;
+  top: 18px;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item.has-children:after {
+    display: none;
+  }
+}
+.main-nav .nav-item.has-children.open:after {
+  content: "\e601";
 }
 @media only screen and (min-width: 768px) {
   .main-nav .nav-item {
@@ -387,8 +431,13 @@ p {
   background-color: #FFF;
 }
 .main-nav .nav-item > .nav-item-link:hover {
-  background-color: #FFF;
-  color: #ec008c;
+  background-color: #eeeeee;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item > .nav-item-link:hover {
+    background-color: #FFF;
+    color: #ec008c;
+  }
 }
 @media only screen and (min-width: 768px) {
   .main-nav .nav-item > .nav-item-link {
@@ -407,36 +456,54 @@ p {
 .main-nav .nav-item.open {
   background-color: #FFF;
 }
-.main-nav .nav-item.open .nav-item-link {
-  color: #ec008c;
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item.open .nav-item-link {
+    color: #ec008c;
+  }
 }
 .main-nav .nav-item.open .sub-nav {
-  display: block;
+  position: relative;
+  top: auto;
+  left: auto;
+  padding: 0 0 5px 0;
   max-height: 720px;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item.open .sub-nav {
+    padding: 12px 0;
+    position: absolute;
+    top: 72px;
+    left: 0;
+  }
 }
 .main-nav .nav-item .nav-item {
   float: none;
 }
 .main-nav .nav-item .sub-nav {
-  display: none;
   background-color: #FFF;
-  position: absolute;
-  top: 72px;
-  left: 0;
-  padding: 12px 0;
+  padding: 0;
   white-space: nowrap;
   z-index: 2;
-  max-height: 1px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+@media only screen and (min-width: 768px) {
+  .main-nav .nav-item .sub-nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+  }
 }
 .main-nav .nav-item .sub-nav .nav-item-link {
   display: block;
   color: #000;
   padding: 0 24px;
   font: 14px/30px 'Galaxie', serif;
+  line-height: 48px;
 }
 .main-nav .nav-item .sub-nav .nav-item-link:hover {
   color: #ec008c;
@@ -454,13 +521,13 @@ p {
     font: 16px/48px 'Galaxie', serif;
   }
 }
-.main-nav.collapse .nav-logo,
-.main-nav.collapse #main-nav-container {
+.main-nav.collapsed .nav-logo,
+.main-nav.collapsed #main-nav-container {
   display: none;
 }
 @media only screen and (min-width: 768px) {
-  .main-nav.collapse .nav-logo,
-  .main-nav.collapse #main-nav-container {
+  .main-nav.collapsed .nav-logo,
+  .main-nav.collapsed #main-nav-container {
     display: block;
   }
 }

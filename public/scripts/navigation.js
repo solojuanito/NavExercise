@@ -10,7 +10,8 @@
 		// Pointing to default nav container
 		// Items and sub-nav templates
 		var mainNavElement = document.getElementById('main-nav-container'),
-			itemTemplate = "<li class='nav-item'><a class='nav-item-link' href='%url%' target='_blank'>%label%</a>%submenu%</li>",
+			toggleButton = document.getElementsByClassName('navbar-toggle')[0],
+			itemTemplate = "<li class='nav-item %has-children%'><a class='nav-item-link' href='%url%' target='_blank'>%label%</a>%submenu%</li>",
 			submenuTemplate = "<ul class='sub-nav'>%submenu%</ul>";
 
 		/**
@@ -20,8 +21,10 @@
 		 */
 		function buildNav (data, container){
 			var mainNav = container || mainNavElement;
+
 			mainNav.innerHTML = (constructHTML(data));
 			mainNav.addEventListener('click',attachNavListeners);
+			toggleButton.addEventListener('click',attachNavToggleListener);
 		}
 
 		/**
@@ -46,17 +49,17 @@
 
 		            // Check if in the JSON object, comes an Array with sub-nav information
 					if (attrValue instanceof Array){
+						submenu = "";
 						if(attrValue.length){
 							//Recursive call to build sub-navs
 							submenu = submenuTemplate.replace('%submenu%', constructHTML(attrValue));
-						} else {
-							submenu = "";
-						}
+						} 
+						itemHTML = submenu ? itemHTML.replace('%has-children%','has-children') : itemHTML.replace('%has-children%','');
 					} else {
 						itemHTML = itemHTML.replace('%'+key+'%',attrValue);
 					}   
 		        }
-		        itemHTML = itemHTML.replace('%submenu%',submenu);
+		        itemHTML = itemHTML.replace('%submenu%',submenu).replace('%has-children%','');
 		        fragment += itemHTML;
 			}
 			return fragment;
@@ -80,6 +83,11 @@
 			} else {
 				displayOverlay(false);
 			}
+		}
+
+		function attachNavToggleListener (event) {
+			toggleButton.className = toggleClass(toggleButton, 'collapsed');
+			mainNavElement.parentNode.className = toggleClass(mainNavElement.parentNode, 'collapsed');
 		}
 
 		/**

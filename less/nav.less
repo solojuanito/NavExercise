@@ -7,7 +7,7 @@
 	top: -60px;
 	right: 0;
 	margin-right: 0;
-	z-index: 2;
+	z-index: 3;
 	color: #FFF;
 	padding: 20px 24px;
 	cursor: pointer;
@@ -43,6 +43,7 @@
   position: absolute;
   width: 100%;
   top: -60px;
+  z-index: 2;
   .transition-properties(all .3s ease-in-out);
 
   	.nav-item-link {
@@ -55,21 +56,63 @@
 		width: 60px;
 		float: left;
 		margin: 24px 48px 24px 24px;
+		display: none; 
+		opacity: 0;
+		.transition-properties(opacity .3s ease-in-out);
+		@media @desktop {
+			display: block;
+			opacity: 1;
+		}
 	}
 
-	.sub-nav {
+	#main-nav-container{
 		position: absolute;
 		top: 60px;
-		width: 100%;
+		width: 90%;
+		height: 100%;
+		padding: 12px 0;
+		background-color: #FFF;
 		@media @desktop {
 			position: relative;
 			top:auto;
 			width: auto;
+			height: auto;
+			background: none;
+			padding: 0;
 		}
 	}
 
 	.nav-item {
 		position: relative;
+
+		&.has-children{
+			&:after{
+				font-family: 'huge-icons';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				content: "\e600";
+
+				position: absolute;
+				right: 24px;
+				color: @magenta;
+				top: 18px;
+				@media @desktop {
+					display: none;
+				}
+			}
+			&.open:after{
+				content: "\e601";
+			}
+		}
 
 		@media @desktop {
 			float: left;
@@ -83,8 +126,11 @@
 			background-color: #FFF;
 
 			&:hover {
-				background-color:#FFF;
-				color: @magenta;
+				background-color: @light-gray;
+				@media @desktop {
+					background-color:#FFF;
+					color: @magenta;
+				}
 			}
 			
 			@media @desktop {
@@ -103,12 +149,23 @@
 			background-color:#FFF;
 			
 			.nav-item-link{
-				color: @magenta;
+				@media @desktop {
+					color: @magenta;
+				}
 			} 
 			
 			.sub-nav{
-				display: block;
-				max-height: 720px;
+				position: relative;
+			    top: auto;
+			    left: auto;
+			    padding: 0 0 5px 0;
+			    max-height: 720px;
+			    @media @desktop {
+					padding: 12px 0;
+					position: absolute;
+					top: 72px;
+					left: 0;
+			    }
 			}
 		}
 
@@ -118,22 +175,26 @@
 		}
 
 		.sub-nav {
-			display: none;
 			background-color: #FFF;
-			position: absolute;
-			top: 72px;
-			left: 0;
-			padding: 12px 0;
+			padding: 0;
 			white-space: nowrap;
 			z-index: 2;
-			max-height: 1px;
-			.transition-properties(all .3s ease-in-out);
+			overflow: hidden;
+			max-height: 0;
+			.transition-properties(all .4s ease-in-out);
+
+			@media @desktop {
+				position: absolute;
+				top: 72px;
+				left: 0;
+			}
 
 			.nav-item-link{
 				display: block;
 				color: #000;
 				padding: 0 24px;
 				font: @secon-nav-desktop;
+				line-height: 48px;
 
 				&:hover{
 					color: @magenta;
@@ -154,7 +215,7 @@
 		}
 	}
 
-	&.collapse {
+	&.collapsed {
 		.nav-logo,#main-nav-container  {
 			display: none;
 			@media @desktop {
