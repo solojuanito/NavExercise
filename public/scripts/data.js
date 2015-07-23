@@ -7,12 +7,19 @@
 
 	var NAV_SERVICE_URL = '/api/nav.json';
 
+	/**
+	 * General Data function handler
+	 * @return {Function} Exposing the data getter function
+	 */
 	function dataGetter () {
 		var xmlhttp = new XMLHttpRequest(),
 			data,
 			dataListener;
 
-		// Retrieve data from nav.json
+		/**
+		 * Retrieve data from specified URL
+		 * @param  {Function} callback [description]
+		 */
 		function getData(callback){
 			dataListener = callback;
 			xmlhttp.onload = processData;
@@ -20,13 +27,17 @@
 			xmlhttp.send();
 		}
 
+		/**
+		 * Processing the response from the AJAX call
+		 * @return {[type]} [description]
+		 */
 		function processData () {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				// Parse JSON response
 			    data = JSON.parse(xmlhttp.responseText);
-			    dataListener(data);
+
 			    // Create Nav elements with response data
-			    //buildNavigation (data.items || []);
+			    dataListener(data);
 		    } else {
 		    	// error handling should be implemented otherwise
 		   	}

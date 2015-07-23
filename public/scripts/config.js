@@ -11,6 +11,5 @@
 
 var NAVEXERCISE = {
     version : '1.0',
-    author	: 'soy@solojuanito.com',
-    fastClick : 'ontouchstart' in document.documentElement ? 'touchstart' : 'click'
+    author	: 'soy@solojuanito.com'
 };

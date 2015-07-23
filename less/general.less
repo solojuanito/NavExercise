@@ -1,0 +1,105 @@
+/* ====================================
+			Base elements
+   ==================================== */
+
+body {
+	position: relative;
+	font: @body-mobile;
+	@media @desktop {
+		font: @body-desktop;
+	}
+}
+
+p {
+	margin-bottom: 2em;
+	text-align: justify;
+}
+
+
+/* ====================================
+		Common util classes
+   ==================================== */
+
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+/* ====================================
+			General layout
+   ==================================== */
+
+.hero-image {
+	background: url('/images/background-image.jpg') 50% 0 no-repeat;
+	background-size:cover;
+	position: relative;
+	height: 300px;
+	margin-top: 60px;
+	.transition-properties(all .3s ease-in-out);
+	@media @desktop {
+		margin-top: 72px;
+		height: 712px;
+		margin-bottom: 0;
+	}
+}
+
+.overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	background-color: @translucent-black;
+	z-index: 1;
+	opacity: 0;
+	padding-bottom: 72px;
+	.transition-properties(opacity .3s ease-in-out);
+	&.open {
+		display: block;
+		opacity: 1;
+	}
+}
+
+.main-title {
+  position: relative;
+  margin: 0;
+  letter-spacing: -0.06em;
+  color: #000;
+  font: @head-mobile;
+  text-align: left;
+  padding: 0 24px;
+  margin: 50px 0;
+  
+  @media @desktop {
+  	position: absolute;
+	font: @head-desktop;
+	color:#FFF;
+	text-align: center;
+	bottom: auto;
+	top: 25%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 70%;
+	padding: 0;
+	margin: 0;
+	.transition-properties(all .3s ease-in-out);
+  }
+  @media @desktop-large {
+	  	font: @head-desktop-large;
+	  }
+}
+
+.content {
+	max-width: 968px;
+	padding: 0 24px;
+
+	@media @desktop {
+		margin: 60px auto;
+	}
+
+	@media @desktop-large {
+		padding: 0;
+	}
+}

@@ -1,0 +1,169 @@
+.navbar-toggle{
+	background: none;
+	border: 0 none;
+	line-height: 20px;
+	position: absolute;
+	font-size: 20px;
+	top: -60px;
+	right: 0;
+	margin-right: 0;
+	z-index: 2;
+	color: #FFF;
+	padding: 20px 24px;
+	cursor: pointer;
+	.transition-properties(all .3s ease-in-out);
+
+	@media @desktop {
+		display: none;
+	}
+	.icon-toggle-open {
+		display: none;
+	}
+	.icon-toggle-close {
+		display: block;
+	}
+
+	&.collapsed {
+		right: 100%;
+		margin-right: -72px;
+
+		.icon-toggle-open {
+			display: block;
+		}
+		.icon-toggle-close {
+			display: none;
+		}
+	}
+}
+
+.main-nav {
+  height: 60px;
+  background: @magenta;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  top: -60px;
+  .transition-properties(all .3s ease-in-out);
+
+  	.nav-item-link {
+	  text-decoration: none;	  
+	}
+
+	.nav-logo {
+		background: url('/images/HUGE-logo.png') 0 0 no-repeat;
+		height: 24px;
+		width: 60px;
+		float: left;
+		margin: 24px 48px 24px 24px;
+	}
+
+	.sub-nav {
+		position: absolute;
+		top: 60px;
+		width: 100%;
+		@media @desktop {
+			position: relative;
+			top:auto;
+			width: auto;
+		}
+	}
+
+	.nav-item {
+		position: relative;
+
+		@media @desktop {
+			float: left;
+		}
+
+		> .nav-item-link{
+			display: block;
+			font: @prim-nav-mobile;
+			color:#000;
+			padding: 0 24px;
+			background-color: #FFF;
+
+			&:hover {
+				background-color:#FFF;
+				color: @magenta;
+			}
+			
+			@media @desktop {
+				font: @prim-nav-desktop;
+				padding: 12px 17px;
+				background: none;
+				color: #fff;
+			}
+			@media @desktop-large {
+				padding: 12px 24px;
+				font: @prim-nav-desktop-large;
+			}
+		}
+
+		&.open {
+			background-color:#FFF;
+			
+			.nav-item-link{
+				color: @magenta;
+			} 
+			
+			.sub-nav{
+				display: block;
+				max-height: 720px;
+			}
+		}
+
+
+		.nav-item {
+			float: none;
+		}
+
+		.sub-nav {
+			display: none;
+			background-color: #FFF;
+			position: absolute;
+			top: 72px;
+			left: 0;
+			padding: 12px 0;
+			white-space: nowrap;
+			z-index: 2;
+			max-height: 1px;
+			.transition-properties(all .3s ease-in-out);
+
+			.nav-item-link{
+				display: block;
+				color: #000;
+				padding: 0 24px;
+				font: @secon-nav-desktop;
+
+				&:hover{
+					color: @magenta;
+					background-color: @light-gray;
+				}
+
+				@media @desktop {
+					font: @secon-nav-desktop;
+					padding: 12px 17px;
+
+				}
+				@media @desktop-large {
+					padding: 12px 24px;
+					font: @secon-nav-desktop-large;
+				}
+
+			}
+		}
+	}
+
+	&.collapse {
+		.nav-logo,#main-nav-container  {
+			display: none;
+			@media @desktop {
+				display: block;
+			}
+		}
+	}
+	@media @desktop {
+		height: 72px;
+		top:-72px;
+	}
+}
