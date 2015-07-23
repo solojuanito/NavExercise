@@ -231,7 +231,7 @@ body {
   display: block;
   opacity: 1;
 }
-h1 {
+.main-title {
   position: relative;
   margin: 0;
   letter-spacing: -0.06em;
@@ -242,7 +242,7 @@ h1 {
   margin: 50px 0;
 }
 @media only screen and (min-width: 768px) {
-  h1 {
+  .main-title {
     position: absolute;
     font: 100px/1.1 'HUGEAvantGardeBold', sans-serif;
     color: #FFF;
@@ -262,7 +262,7 @@ h1 {
   }
 }
 @media only screen and (min-width: 990px) {
-  h1 {
+  .main-title {
     font: 120px/132px 'HUGEAvantGardeBold', sans-serif;
   }
 }
