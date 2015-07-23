@@ -210,6 +210,14 @@ p {
   white-space: nowrap;
   overflow: hidden;
 }
+.slide {
+  transform: translateX(90%);
+}
+@media only screen and (min-width: 768px) {
+  .slide {
+    transform: none;
+  }
+}
 /* ====================================
 			General layout
    ==================================== */
@@ -238,6 +246,7 @@ p {
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
+  display: none;
   opacity: 0;
   padding-bottom: 72px;
   -webkit-transition: opacity 0.3s ease-in-out;
@@ -258,6 +267,10 @@ p {
   text-align: left;
   padding: 0 24px;
   margin: 50px 0;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .main-title {
@@ -287,6 +300,10 @@ p {
 .content {
   max-width: 968px;
   padding: 0 24px;
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .content {
@@ -341,9 +358,9 @@ p {
   height: 60px;
   background: #ec008c;
   color: #fff;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  top: -60px;
+  top: 0;
   z-index: 2;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -355,39 +372,52 @@ p {
 }
 .main-nav .nav-logo {
   background: url('/images/HUGE-logo.png') 0 0 no-repeat;
-  height: 24px;
-  width: 60px;
+  height: 20px;
+  width: 50px;
+  background-size: 50px;
+  margin: 20px 20px 20px 24px;
   float: left;
-  margin: 24px 48px 24px 24px;
-  display: none;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+  display: block;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .main-nav .nav-logo {
+    height: 24px;
+    width: 60px;
     display: block;
     opacity: 1;
+    margin: 24px 48px 24px 24px;
+    background-size: cover;
   }
 }
 .main-nav #main-nav-container {
-  position: absolute;
+  position: fixed;
   top: 60px;
+  left: 0;
   width: 90%;
   height: 100%;
   padding: 12px 0;
   background-color: #FFF;
+  overflow-y: auto;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   .main-nav #main-nav-container {
     position: relative;
     top: auto;
+    left: auto;
     width: auto;
     height: auto;
     background: none;
     padding: 0;
+    overflow: visible;
   }
 }
 .main-nav .nav-item {
@@ -521,18 +551,25 @@ p {
     font: 16px/48px 'Galaxie', serif;
   }
 }
-.main-nav.collapsed .nav-logo,
-.main-nav.collapsed #main-nav-container {
-  display: none;
+.main-nav.collapsed .nav-logo {
+  opacity: 0;
 }
 @media only screen and (min-width: 768px) {
-  .main-nav.collapsed .nav-logo,
+  .main-nav.collapsed .nav-logo {
+    opacity: 1;
+  }
+}
+.main-nav.collapsed #main-nav-container {
+  left: -100%;
+}
+@media only screen and (min-width: 768px) {
   .main-nav.collapsed #main-nav-container {
-    display: block;
+    left: auto;
   }
 }
 @media only screen and (min-width: 768px) {
   .main-nav {
+    position: absolute;
     height: 72px;
     top: -72px;
   }

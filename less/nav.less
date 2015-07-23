@@ -40,9 +40,9 @@
   height: 60px;
   background: @magenta;
   color: #fff;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  top: -60px;
+  top: 0;
   z-index: 2;
   .transition-properties(all .3s ease-in-out);
 
@@ -52,33 +52,45 @@
 
 	.nav-logo {
 		background: url('/images/HUGE-logo.png') 0 0 no-repeat;
-		height: 24px;
-		width: 60px;
+		height: 20px;
+		width: 50px;
+		background-size: 50px;
+	    margin: 20px 20px 20px 24px;
 		float: left;
-		margin: 24px 48px 24px 24px;
-		display: none; 
-		opacity: 0;
-		.transition-properties(opacity .3s ease-in-out);
+		display: block;
+	    opacity: 1;
+	    .transition-properties(opacity .5s ease-in-out);
+	    
+
 		@media @desktop {
+			height: 24px;
+			width: 60px;
 			display: block;
 			opacity: 1;
+			margin: 24px 48px 24px 24px;
+			background-size: cover;
 		}
 	}
 
 	#main-nav-container{
-		position: absolute;
+		position: fixed;
 		top: 60px;
+		left: 0;
 		width: 90%;
 		height: 100%;
 		padding: 12px 0;
 		background-color: #FFF;
+		overflow-y: auto;
+		.transition-properties(all .5s ease-in-out);
 		@media @desktop {
 			position: relative;
 			top:auto;
+			left: auto;
 			width: auto;
 			height: auto;
 			background: none;
 			padding: 0;
+			overflow: visible;
 		}
 	}
 
@@ -216,14 +228,21 @@
 	}
 
 	&.collapsed {
-		.nav-logo,#main-nav-container  {
-			display: none;
+		.nav-logo {
+			opacity: 0;
 			@media @desktop {
-				display: block;
+				opacity: 1;
+			}
+		}
+		#main-nav-container  {
+			left: -100%;
+			@media @desktop {
+				left:auto;
 			}
 		}
 	}
 	@media @desktop {
+		position: absolute;
 		height: 72px;
 		top:-72px;
 	}

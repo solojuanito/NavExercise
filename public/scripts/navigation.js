@@ -79,15 +79,26 @@
 			if (submenu && submenu.hasChildNodes()){
 				event.preventDefault();
 				elementContainer.className = toggleClass (elementContainer, 'open');
-				displayOverlay(true);
+				if (elementContainer.className.indexOf('open')>=0){
+					displayOverlay(true);
+					event.stopPropagation();
+					document.addEventListener('click',clickOutsideHandler); 
+				} else {
+					displayOverlay(false);
+				}
 			} else {
 				displayOverlay(false);
 			}
 		}
 
+		/**
+		 * Handle behaviors for burguer menu
+		 * @param  {OnClick} event [description]
+		 */
 		function attachNavToggleListener (event) {
 			toggleButton.className = toggleClass(toggleButton, 'collapsed');
 			mainNavElement.parentNode.className = toggleClass(mainNavElement.parentNode, 'collapsed');
+			slideSite();
 		}
 
 		/**
@@ -97,15 +108,26 @@
 		 */
 		function displayOverlay (isDisplayed){
 			var overlay = document.getElementsByClassName('overlay')[0],
-				overlayClasses = overlay.className;
+				overlayClasses = overlay.className,
+				elementsOpen,
+				element;
 
 			if (isDisplayed){
 				if (overlayClasses.indexOf('open') == -1) {
 					overlay.className = overlayClasses + " open";
-				} 
+				}
 			} else {
-				overlay.className = toggleClass(overlay, 'open', !isDisplayed);
+				elementsOpen = document.getElementsByClassName('open');
+				for (var i=0, x=elementsOpen.length; i<x; i++){
+					element = elementsOpen[0];
+					element.className = toggleClass(element, 'open', true);
+				}
 			}
+		}
+
+		function clickOutsideHandler(event){
+			displayOverlay(false);
+			document.removeEventListener('click',clickOutsideHandler);
 		}
 
 		/**
@@ -119,6 +141,16 @@
 			var regExp = new RegExp('(\\s|^)' + elemClass + '(\\s|$)');
 
 			return forceRemove || elem.className.indexOf(elemClass) >= 0 ? elem.className.replace(regExp , '' ) : elem.className + " " + elemClass;
+		}
+
+		function slideSite(display){
+			var slide = display || toggleButton.className.indexOf('collapsed') >= 0,
+				title = document.getElementsByClassName('main-title')[0],
+				content = document.getElementsByClassName('content')[0];
+			
+			displayOverlay(!slide);
+			title.className = toggleClass (title, 'slide');
+			content.className = toggleClass (content, 'slide');
 		}
 
 		return {
